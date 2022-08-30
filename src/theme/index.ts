@@ -4,19 +4,20 @@ import { createTheme, Theme } from "@mui/material/styles";
 import {
   error,
   grey,
-  greyDark,
   primary,
   secondary,
   secondaryDark,
   success,
   warning,
+  text,
+  textDark,
 } from "./color";
 
 const fontSize = 14;
 
 const fontFamily = [
   // "Open Sans",
-  "Roboto",
+  "Montserrat ",
   // "-apple-system",
   // "BlinkMacSystemFont",
   // "Segoe UI",
@@ -190,11 +191,7 @@ export const getDesignTokens = (mode: any) => ({
           },
           warning,
           success,
-          text: {
-            primary: grey[900],
-            secondary: grey[800],
-            disabled: grey[400],
-          },
+          text,
           divider: grey[200],
           grey: { ...grey },
           background: {
@@ -207,7 +204,7 @@ export const getDesignTokens = (mode: any) => ({
             ...primary,
             light: "black",
           },
-          secondary,
+          secondary: secondaryDark,
           error,
           info: {
             main: "#333",
@@ -217,15 +214,11 @@ export const getDesignTokens = (mode: any) => ({
           },
           warning,
           success,
-          text: {
-            primary: greyDark[900],
-            secondary: greyDark[800],
-            disabled: greyDark[400],
-          },
-          divider: greyDark[200],
-          grey: { ...greyDark },
+          text: textDark,
+          divider: grey[200],
+          grey: { ...grey },
           background: {
-            default: greyDark[100],
+            default: grey[100],
           },
         }),
     mode,

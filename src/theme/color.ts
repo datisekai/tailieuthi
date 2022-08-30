@@ -1,6 +1,6 @@
 export const grey = {
   900: "#1D1D1F", // Main Text
-  800: "#373F50", // Paragraph
+  800: "#3E5060", // Paragraph
   700: "#4B566B",
   600: "#7D879C", // Low Priority form Title/Text
   500: "#AEB4BE",
@@ -12,45 +12,42 @@ export const grey = {
   text: "#1D1D1F", // text black
 };
 
-export const greyDark = {
-  900: "#fff", // Main Text
-  800: "#b2bac2", // Paragraph
-  700: "#4B566B",
-  600: "#7D879C", // Low Priority form Title/Text
-  500: "#AEB4BE",
-  400: "#999", // Border
-  300: "#86868B", // Title filter
-  200: "#F3F5F9", // Line Stroke
-  100: "#f6f6f6", // background
-  main: "#f6f6f6", // text grey
-  text: "#1D1D1F", // text black
+export const text = {
+  primary: "#1D1D1F",
+  secondary: "#3E5060",
+  disabled: "#DAE1E7",
+};
+
+export const textDark = {
+  primary: "#fff",
+  secondary: "rgb(178, 186, 194)",
+  disabled: grey[400],
 };
 
 export const primary = {
-  100: "#fff",
-  200: "#f5f5f5",
-  300: "#d2d2d2", // main slider
-  400: "#868686",
-  500: "#666",
-  600: "#333",
-  700: "#131215",
-  800: "#131215",
-  900: "#000", // background header
-  main: "#131215",
+  100: "#fee2e2",
+  200: "#fecaca",
+  300: "#fca5a5",
+  400: "#f87171",
+  500: "#ef4444",
+  600: "#dc2626",
+  700: "#b91c1c",
+  800: "#991b1b",
+  900: "#7f1d1d",
+  main: "#dc2626",
 };
 
 export const secondary = {
-  100: "#3024b5",
-  200: "#3024b5",
-  300: "#3024b5",
-  400: "#3024b5",
-  500: "#3024b5",
-  600: "#3024b5",
-  700: "#3024b5",
-  800: "#3024b5",
-  900: "#3024b5",
-  main: "#3024b5",
-  dark: "#3024b5",
+  100: "#fff",
+  200: "#fff",
+  300: "#fff",
+  400: "#fff",
+  500: "#fff",
+  600: "#fff",
+  700: "#fff",
+  800: "#fff",
+  900: "#fff",
+  main: "#fff",
 };
 
 export const secondaryDark = {

@@ -12,6 +12,7 @@ interface TextFieldProps {
   label: string;
   inputProps?: any;
   customSx?: any;
+  size?: string;
 }
 
 const MTextField: FC<TextFieldProps> = ({
@@ -23,21 +24,22 @@ const MTextField: FC<TextFieldProps> = ({
   label,
   inputProps,
   customSx,
+  size = "small",
 }) => {
   return (
-    <div className="mb-4">
+    <div className='mb-4'>
       <Controller
         render={({ field }) => (
           <TextFieldMUI
             {...field}
             fullWidth
             type={type || "text"}
-            color="secondary"
+            color='secondary'
             sx={customSx}
-            autoComplete="false"
-            size="small"
+            autoComplete='false'
+            size={size}
             label={label}
-            variant="outlined"
+            variant='outlined'
             InputProps={inputProps || undefined}
           />
         )}
@@ -45,7 +47,7 @@ const MTextField: FC<TextFieldProps> = ({
         control={control}
         rules={rules}
       />
-      <Typography color="error" textAlign={"left"} sx={{ py: "4px" }}>
+      <Typography color='error' textAlign={"left"} sx={{ py: "4px" }}>
         {error[name] && error[name].message}
       </Typography>
     </div>
