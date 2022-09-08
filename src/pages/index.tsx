@@ -2,6 +2,7 @@ import { Box, useTheme } from "@mui/material";
 import MainLayout from "../components/layout/MainLayout";
 import UserLayout from "../components/layout/UserLayout";
 import Section1 from "../components/sections/Section1";
+import Section2 from "../components/sections/Section2";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { increment, decrement } from "../redux/slice";
 
@@ -22,6 +23,8 @@ const Home = () => {
         <Section1 title='Mới cập nhật' />
         <Section1 title='Top lượt xem' />
         <Section1 title='Top yêu thích' />
+        <Section2 title='Đại học Sài Gòn' />
+        <Section2 title='Đại học Sư Phạm' />
       </Box>
     </MainLayout>
   );

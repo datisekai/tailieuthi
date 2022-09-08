@@ -1,17 +1,7 @@
 import { Box } from "@mui/material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import "swiper/css";
+import { Autoplay, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import WidthLayout from "./layout/WidthLayout";
-import SwiperCore, {
-  Navigation,
-  Autoplay,
-  Pagination,
-  EffectCoverflow,
-} from "swiper";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 
 const images = [
   "/images/onthi.jpg",
@@ -22,7 +12,7 @@ const images = [
 
 const Slider = () => {
   return (
-    <Box mt={2}>
+    <Box mt={{ md: 0, xs: "60px" }}>
       {/* <WidthLayout> */}
       <Swiper
         spaceBetween={50}

@@ -1,5 +1,12 @@
-import { Box, Button, IconButton, Stack, useTheme } from "@mui/material";
-import React from "react";
+import {
+  Box,
+  Button,
+  IconButton,
+  Stack,
+  Typography,
+  useTheme,
+} from "@mui/material";
+import React, { useState } from "react";
 import FlexBox from "../FlexBox";
 import WidthLayout from "../layout/WidthLayout";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -9,14 +16,32 @@ import UploadIcon from "@mui/icons-material/Upload";
 import FeedbackIcon from "@mui/icons-material/Feedback";
 import useWidth from "../../hooks/useWidth";
 import SearchIcon from "@mui/icons-material/Search";
+import Popup from "./Popup";
+import NavBar from "./NavBar";
+import SearchMobile from "./SearchMobile";
 
 const Header = () => {
-  const width = useWidth();
+  const [openNavbar, setOpenNavbar] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
   const {
     palette: { secondary },
   } = useTheme();
   return (
-    <Box sx={{ bgcolor: secondary.main, height: 50, py: 0.5 }}>
+    <Box
+      sx={{
+        bgcolor: secondary.main,
+        height: 60,
+        py: 0.5,
+        position: {
+          md: "relative",
+          xs: "fixed",
+        },
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 9999,
+      }}
+    >
       <WidthLayout>
         <FlexBox
           sx={{
@@ -34,8 +59,9 @@ const Header = () => {
               src={"/logo.jpg"} // use normal <img> attributes as props
               style={{ borderRadius: "50%", width: "50px" }}
             />
-            <IconButton>
+            <IconButton id='barPC'>
               <WidgetsIcon />
+              <Popup />
             </IconButton>
           </Stack>
           <Box>
@@ -77,7 +103,7 @@ const Header = () => {
           alignItems={"center"}
           justifyContent='space-between'
         >
-          <IconButton>
+          <IconButton onClick={() => setOpenNavbar(!openNavbar)}>
             <WidgetsIcon fontSize='large' />
           </IconButton>
           <LazyLoadImage
@@ -85,11 +111,16 @@ const Header = () => {
             src={"/logo.jpg"} // use normal <img> attributes as props
             style={{ borderRadius: "50%", width: "50px" }}
           />
-          <IconButton>
+          <IconButton onClick={() => setOpenSearch(!openSearch)}>
             <SearchIcon fontSize='large' />
           </IconButton>
+          <NavBar open={openNavbar} handleClose={() => setOpenNavbar(false)} />
         </FlexBox>
       </WidthLayout>
+      <SearchMobile
+        open={openSearch}
+        handleClose={() => setOpenSearch(false)}
+      />
     </Box>
   );
 };

@@ -25,3 +25,43 @@ img {
   height: 100%;
   object-fit: cover;
 }
+
+#barPC{
+  position: relative;
+}
+
+#barPC::after{
+  content: "";
+  display: block;
+  width: 70px;
+  height: 30px;
+  background: transparent;
+  position: absolute;
+  top: 35px;
+  left: 0;
+
+}
+
+#barPCChildren{
+  position: absolute;
+  width: 500px;
+  top: 60px;
+  left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 10;
+  display: none;
+  animation: ease showSlow 1s;
+}
+
+@keyframes showSlow{
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#barPC:hover #barPCChildren{
+  display: block;
+}

@@ -4,6 +4,10 @@ import { ChildrenProps } from "../../models";
 import Footer from "../Footer";
 import Header from "../Headers/Header";
 import Slider from "../Slider";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 const MainLayout: FC<ChildrenProps> = ({ children }) => {
   return (
