@@ -1,5 +1,19 @@
 export const grey = {
-  900: "#1D1D1F", // Main Text
+  900: "#f5f5f5", // Main Text
+  800: "#3E5060", // Paragraph
+  700: "#4B566B",
+  600: "#7D879C", // Low Priority form Title/Text
+  500: "#AEB4BE",
+  400: "#DAE1E7", // Border
+  300: "#86868B", // Title filter
+  200: "#F3F5F9", // Line Stroke
+  100: "#f6f6f6", // background
+  main: "#f6f6f6", // text grey
+  text: "#1D1D1F", // text black
+};
+
+export const greyDark = {
+  900: "#000", // Main Text
   800: "#3E5060", // Paragraph
   700: "#4B566B",
   600: "#7D879C", // Low Priority form Title/Text

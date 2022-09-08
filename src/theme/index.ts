@@ -11,6 +11,7 @@ import {
   warning,
   text,
   textDark,
+  greyDark,
 } from "./color";
 
 const fontSize = 14;
@@ -215,10 +216,10 @@ export const getDesignTokens = (mode: any) => ({
           warning,
           success,
           text: textDark,
-          divider: grey[200],
-          grey: { ...grey },
+          divider: greyDark[200],
+          grey: { ...greyDark },
           background: {
-            default: grey[100],
+            default: greyDark[100],
           },
         }),
     mode,

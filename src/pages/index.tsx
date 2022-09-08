@@ -1,5 +1,7 @@
-import { useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
+import MainLayout from "../components/layout/MainLayout";
 import UserLayout from "../components/layout/UserLayout";
+import Section1 from "../components/sections/Section1";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { increment, decrement } from "../redux/slice";
 
@@ -8,31 +10,20 @@ const Home = () => {
   const { user } = useAppSelector((state) => state.Auth);
   const dispatch = useAppDispatch();
 
-  const theme = useTheme();
+  const {
+    palette: { grey },
+  } = useTheme();
 
   console.log(user);
 
   return (
-    <UserLayout>
-      <div className='p-10'>
-        <p>{value}</p>
-
-        <div className='flex gap-4'>
-          <button
-            className='bg-blue-500 p-2 mt-4 rounded-md text-white'
-            onClick={() => dispatch(increment())}
-          >
-            Tăng lên
-          </button>
-          <button
-            className='bg-blue-500 p-2 mt-4 rounded-md text-white'
-            onClick={() => dispatch(decrement())}
-          >
-            Giảm xuống
-          </button>
-        </div>
-      </div>
-    </UserLayout>
+    <MainLayout>
+      <Box bgcolor={grey[900]} sx={{ minHeight: "100vh", pb: 10 }}>
+        <Section1 title='Mới cập nhật' />
+        <Section1 title='Top lượt xem' />
+        <Section1 title='Top yêu thích' />
+      </Box>
+    </MainLayout>
   );
 };
 
