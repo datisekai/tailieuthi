@@ -14,47 +14,74 @@ const Footer = () => {
     <>
       <Box bgcolor={secondary.main} pt={2} pb={3}>
         <WidthLayout>
-          {" "}
           <Box sx={{ width: "100%", textAlign: "center" }}>
-            <LazyLoadImage
-              src='/logo.jpg'
-              style={{
-                width: 50,
-                height: 50,
-                borderRadius: "50%",
-              }}
-            />
+            <Stack
+              direction='row'
+              justifyContent={"center"}
+              alignItems='center'
+              spacing={2}
+            >
+              <LazyLoadImage
+                src='/logo.jpg'
+                style={{
+                  width: 50,
+                  height: 50,
+                  borderRadius: "50%",
+                }}
+              />
+              <Typography fontSize={15} color='text.primary'>
+                63.084
+              </Typography>
+            </Stack>
             <Stack
               direction={{ md: "row", xs: "column" }}
               justifyContent={{ md: "space-between", xs: "center" }}
               mt={3}
             >
               <Stack spacing={2} mt={1}>
-                <Typography fontWeight={"bold"} textTransform='uppercase'>
+                <Typography
+                  fontWeight={"bold"}
+                  textTransform='uppercase'
+                  color='text.primary'
+                >
                   Hỗ trợ khách hàng
                 </Typography>
                 <FlexBox justifyContent={"center"}>
-                  <EmailIcon />
-                  <Typography ml={1}>datly030102@gmail.com</Typography>
+                  <EmailIcon color='info' />
+                  <Typography ml={1} color='text.primary'>
+                    datly030102@gmail.com
+                  </Typography>
                 </FlexBox>
                 <FlexBox justifyContent={"center"}>
-                  <FacebookIcon />
-                  <Typography ml={1}>facebook.com/datisekai</Typography>
+                  <FacebookIcon color='info' />
+                  <Typography ml={1} color='text.primary'>
+                    facebook.com/datisekai
+                  </Typography>
                 </FlexBox>
               </Stack>
               <Stack spacing={2} mt={1}>
-                <Typography fontWeight={"bold"} textTransform='uppercase'>
+                <Typography
+                  fontWeight={"bold"}
+                  textTransform='uppercase'
+                  color='text.primary'
+                >
                   Giúp đỡ
                 </Typography>
-                <Typography>Câu hỏi thường gặp</Typography>
-                <Typography>Điều khoản sử dụng</Typography>
+                <Typography color='text.primary'>Câu hỏi thường gặp</Typography>
+                <Typography color='text.primary'>Điều khoản sử dụng</Typography>
               </Stack>
               <Stack spacing={2} mt={1}>
-                <Typography fontWeight={"bold"} textTransform='uppercase'>
+                <Typography
+                  color='text.primary'
+                  fontWeight={"bold"}
+                  textTransform='uppercase'
+                >
                   Giới thiệu
                 </Typography>
-                <Typography>AD Document là gì?</Typography>
-                <Typography>Ai tạo ra ADDocument?</Typography>
+                <Typography color='text.primary'>AD Document là gì?</Typography>
+                <Typography color='text.primary'>
+                  Ai tạo ra ADDocument?
+                </Typography>
               </Stack>
             </Stack>
           </Box>

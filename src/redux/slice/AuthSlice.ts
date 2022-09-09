@@ -20,7 +20,7 @@ const AuthSlice = createSlice({
     },
     clearAuth: (state) => {
       state.token = "";
-      state.user = undefined;
+      state.user = null;
       localStorage.removeItem("token");
     },
     setUser: (state, action) => {

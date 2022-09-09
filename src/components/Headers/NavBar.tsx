@@ -18,6 +18,9 @@ import FeedbackIcon from "@mui/icons-material/Feedback";
 import LoginIcon from "@mui/icons-material/Login";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
 import randomColor from "../../utils/randomColor";
+import { useRouter } from "next/router";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import { clearAuth } from "../../redux/slice/AuthSlice";
 
 interface NavBarProps {
   open: boolean;
@@ -25,6 +28,16 @@ interface NavBarProps {
 }
 
 const NavBar: FC<NavBarProps> = ({ open, handleClose }) => {
+  const router = useRouter();
+
+  const { user } = useAppSelector((state) => state.Auth);
+  const dispatch = useAppDispatch();
+
+  const handleLogout = () => {
+    dispatch(clearAuth());
+    router.push("/");
+  };
+
   return (
     <React.Fragment>
       <Drawer
@@ -32,19 +45,17 @@ const NavBar: FC<NavBarProps> = ({ open, handleClose }) => {
           ".css-1o1k4n8-MuiPaper-root-MuiDrawer-paper": {
             top: "60px",
           },
+          ".MuiDrawer-paperAnchorTop": {
+            top: "60px",
+          },
         }}
         anchor={"top"}
         open={open}
         onClose={handleClose}
       >
-        <Box
-          sx={{ width: "auto" }}
-          role='presentation'
-          onClick={handleClose}
-          onKeyDown={handleClose}
-        >
+        <Box sx={{ width: "auto" }} role='presentation' onKeyDown={handleClose}>
           <List>
-            <ListItem disablePadding>
+            <ListItem onClick={() => router.push("/tai-len")} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
                   <UploadIcon />
@@ -52,7 +63,7 @@ const NavBar: FC<NavBarProps> = ({ open, handleClose }) => {
                 <ListItemText primary={"Tải lên"} />
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding>
+            <ListItem onClick={() => router.push("/gop-y")} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
                   <FeedbackIcon />
@@ -60,22 +71,64 @@ const NavBar: FC<NavBarProps> = ({ open, handleClose }) => {
                 <ListItemText primary={"Góp ý"} />
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <LoginIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Đăng nhập"} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <SaveAsIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Đăng ký"} />
-              </ListItemButton>
-            </ListItem>
+            {!user && (
+              <ListItem
+                onClick={() => router.push("/dang-nhap")}
+                disablePadding
+              >
+                <ListItemButton>
+                  <ListItemIcon>
+                    <LoginIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={"Đăng nhập"} />
+                </ListItemButton>
+              </ListItem>
+            )}
+            {!user && (
+              <ListItem onClick={() => router.push("/dang-ky")} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <SaveAsIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={"Đăng ký"} />
+                </ListItemButton>
+              </ListItem>
+            )}
+            {user && <Divider />}
+            {user && (
+              <ListItem
+                onClick={() => router.push("/tai-lieu-cua-toi")}
+                disablePadding
+              >
+                <ListItemButton>
+                  <ListItemText primary={"Tài liệu của tôi"} />
+                </ListItemButton>
+              </ListItem>
+            )}
+            {user && (
+              <ListItem
+                onClick={() => router.push("/tai-lieu-da-luu")}
+                disablePadding
+              >
+                <ListItemButton>
+                  <ListItemText primary={"Tài liệu đã lưu"} />
+                </ListItemButton>
+              </ListItem>
+            )}
+            {user && (
+              <ListItem onClick={() => router.push("/cai-dat")} disablePadding>
+                <ListItemButton>
+                  <ListItemText primary={"Cài đặt"} />
+                </ListItemButton>
+              </ListItem>
+            )}
+            {user && (
+              <ListItem onClick={handleLogout} disablePadding>
+                <ListItemButton>
+                  <ListItemText primary={"Đăng xuất"} />
+                </ListItemButton>
+              </ListItem>
+            )}
           </List>
           <Divider />
           <List>

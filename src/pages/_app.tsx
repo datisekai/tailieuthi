@@ -13,16 +13,16 @@ const queryClient = new QueryClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeLayout>
-      <QueryClientProvider client={queryClient}>
-        <Provider store={store}>
+    <QueryClientProvider client={queryClient}>
+      <Provider store={store}>
+        <ThemeLayout>
           <AuthLayout>
             <Component {...pageProps} />
           </AuthLayout>
           <Toaster />
-        </Provider>
-      </QueryClientProvider>
-    </ThemeLayout>
+        </ThemeLayout>
+      </Provider>
+    </QueryClientProvider>
   );
 }
 

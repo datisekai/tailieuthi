@@ -12,7 +12,7 @@ const Section1: FC<Section1Props> = ({ title }) => {
     <Box pt={3}>
       <WidthLayout>
         {title && (
-          <Typography fontSize={17} fontWeight={"bold"}>
+          <Typography color='text.primary' fontSize={17} fontWeight={"bold"}>
             {title}
           </Typography>
         )}

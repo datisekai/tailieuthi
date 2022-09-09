@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterSlice from "./slice";
 import AuthSlice from "./slice/AuthSlice";
+import ModeSlice from "./slice/ModeSlice";
 
 export const store = configureStore({
   reducer: {
     counter: counterSlice,
     Auth: AuthSlice,
+    Mode:ModeSlice
   },
 });
 

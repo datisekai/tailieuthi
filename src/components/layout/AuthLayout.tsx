@@ -2,6 +2,7 @@ import React, { FC, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { ChildrenProps } from "../../models";
 import { setToken, setUser } from "../../redux/slice/AuthSlice";
+import { setMode } from "../../redux/slice/ModeSlice";
 import UserService from "../../services/userService";
 
 const AuthLayout: FC<ChildrenProps> = ({ children }) => {
@@ -19,7 +20,11 @@ const AuthLayout: FC<ChildrenProps> = ({ children }) => {
     } else {
       dispatch(setUser(null));
     }
-  }, []);
+
+    if (localStorage && localStorage.getItem("mode")) {
+      dispatch(setMode(localStorage.getItem("mode")));
+    }
+  }, [token]);
 
   return <div>{children}</div>;
 };

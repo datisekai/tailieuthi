@@ -8,12 +8,18 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
-const MainLayout: FC<ChildrenProps> = ({ children }) => {
+interface MainLayoutProps {
+  children: React.ReactNode;
+  isSlider?: boolean;
+}
+
+const MainLayout: FC<MainLayoutProps> = ({ children, isSlider = true }) => {
   return (
     <Box>
       <Header />
-      <Slider />
+      {isSlider && <Slider />}
       <Box>{children}</Box>
       <Footer />
     </Box>

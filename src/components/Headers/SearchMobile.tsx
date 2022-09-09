@@ -1,4 +1,4 @@
-import { Box, TextField } from "@mui/material";
+import { Box, TextField, useTheme } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { FC, useEffect, useRef, useState } from "react";
 
@@ -10,6 +10,10 @@ interface SearchMobileProps {
 const SearchMobile: FC<SearchMobileProps> = ({ open, handleClose }) => {
   const [text, setText] = useState("");
   const inputRef = useRef<any>();
+
+  const {
+    palette: { secondary },
+  } = useTheme();
 
   const router = useRouter();
 
@@ -35,7 +39,7 @@ const SearchMobile: FC<SearchMobileProps> = ({ open, handleClose }) => {
         sx={{
           position: "fixed",
           zIndex: 12,
-          bgcolor: "#fff",
+          bgcolor: secondary.main,
           left: 0,
           right: 0,
           top: 60,
