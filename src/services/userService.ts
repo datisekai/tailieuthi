@@ -3,6 +3,7 @@ import client from "./client";
 interface UserServiceChidlren {
   login: (data: { username: string; password: string }) => Promise<string>;
   getMyInformation: () => Promise<any>;
+  register: (data: { username: string; password: string }) => Promise<string>;
 }
 
 const UserService: UserServiceChidlren = {
@@ -12,6 +13,10 @@ const UserService: UserServiceChidlren = {
   },
   getMyInformation: async () => {
     const result = await client.get("/user/me");
+    return result.data.data;
+  },
+  register: async (data) => {
+    const result = await client.post("/user", data);
     return result.data.data;
   },
 };

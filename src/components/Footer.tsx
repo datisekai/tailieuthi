@@ -1,4 +1,10 @@
-import { Box, Stack, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Link as LinkMUI,
+  Stack,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import EmailIcon from "@mui/icons-material/Email";
@@ -22,7 +28,7 @@ const Footer = () => {
               spacing={2}
             >
               <LazyLoadImage
-                src='/logo.jpg'
+                src='/logo2.jpg'
                 style={{
                   width: 50,
                   height: 50,
@@ -75,12 +81,33 @@ const Footer = () => {
                   color='text.primary'
                   fontWeight={"bold"}
                   textTransform='uppercase'
+                  sx={{
+                    ":hover": {
+                      textDecoration: "underline",
+                    },
+                  }}
                 >
                   Giới thiệu
                 </Typography>
-                <Typography color='text.primary'>AD Document là gì?</Typography>
-                <Typography color='text.primary'>
-                  Ai tạo ra ADDocument?
+                <Typography
+                  sx={{
+                    ":hover": {
+                      textDecoration: "underline",
+                    },
+                  }}
+                  color='text.primary'
+                >
+                  Tailieuthi.site là gì?
+                </Typography>
+                <Typography
+                  sx={{
+                    ":hover": {
+                      textDecoration: "underline",
+                    },
+                  }}
+                  color='text.primary'
+                >
+                  Ai tạo ra Tailieuthi.site?
                 </Typography>
               </Stack>
             </Stack>
@@ -93,7 +120,13 @@ const Footer = () => {
         bgcolor='#ccc'
         height={40}
       >
-        <Typography>Copyright © 2022. Design by Datisekai && AnMhg</Typography>
+        <Typography>
+          Copyright © 2022. Design by{" "}
+          <LinkMUI href='https://www.facebook.com/datisekai/'>
+            Datisekai
+          </LinkMUI>{" "}
+          &<LinkMUI href='https://www.facebook.com/an70008'> AnMhg</LinkMUI>
+        </Typography>
       </FlexBox>
     </>
   );

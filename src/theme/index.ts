@@ -208,7 +208,7 @@ export const getDesignTokens = (mode: any) => ({
           secondary: secondaryDark,
           error,
           info: {
-            main: "#333",
+            main: "#f5f5f5",
             100: "#ccc",
             200: "#999",
             300: "#666",

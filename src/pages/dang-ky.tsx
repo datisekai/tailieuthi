@@ -25,7 +25,7 @@ import { setToken } from "../redux/slice/AuthSlice";
 import MainLayout from "../components/layout/MainLayout";
 import Link from "next/link";
 
-const Login = () => {
+const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const {
     palette: { primary, secondary, text, grey },
@@ -35,7 +35,7 @@ const Login = () => {
 
   const router = useRouter();
 
-  const { mutate: login, isLoading } = useMutation(UserService.login, {
+  const { mutate: register, isLoading } = useMutation(UserService.register, {
     onSuccess: (result) => {
       dispatch(setToken(result));
       toast("Đăng nhập thành công!", {
@@ -57,12 +57,16 @@ const Login = () => {
     defaultValues: {
       username: "",
       password: "",
+      repeat: "",
     },
   });
 
   const customTextField = {
-    ".css-kobfq2-MuiInputBase-root-MuiOutlinedInput-root": {
-      backgroundColor: primary[200],
+    // ".css-kobfq2-MuiInputBase-root-MuiOutlinedInput-root": {
+    //   backgroundColor: primary[200],
+    // },
+    div: {
+      backgroundColor: secondary.main,
     },
   };
 
@@ -72,8 +76,11 @@ const Login = () => {
     }
   }, [token]);
 
-  const handleLogin = (data: any) => {
-    login(data);
+  const handleRegister = (data: any) => {
+    if (data.password !== data.repeat) {
+      toast.error("Mật khẩu và nhập lại không khớp");
+    }
+    register({ username: data.username, password: data.password });
   };
 
   if (typeof user == "undefined") {
@@ -111,15 +118,15 @@ const Login = () => {
               }}
               textAlign='center'
             >
-              Bạn chưa có tài khoản?
-              <Link href='/dang-ky'>
+              Bạn đã có tài khoản?
+              <Link href='/dang-nhap'>
                 <Button variant='text' sx={{ color: "#fff" }}>
-                  Đăng ký ngay
+                  Đăng nhập ngay
                 </Button>
               </Link>
             </Typography>
-            <form onSubmit={handleSubmit(handleLogin)}>
-              <Stack spacing={1} mt={2} px={5} py={3}>
+            <form onSubmit={handleSubmit(handleRegister)}>
+              <Stack mt={2} px={5} py={3}>
                 <MTextField
                   control={control}
                   error={errors}
@@ -169,15 +176,50 @@ const Login = () => {
                   }}
                   customSx={customTextField}
                 />
+                <MTextField
+                  size={"medium"}
+                  name='repeat'
+                  control={control}
+                  error={errors}
+                  label='Nhập lại mật khẩu'
+                  type={showPassword ? "text" : "password"}
+                  inputProps={{
+                    endAdornment: (
+                      <InputAdornment position='start'>
+                        <IconButton
+                          size='small'
+                          onClick={() => setShowPassword(!showPassword)}
+                        >
+                          {showPassword ? (
+                            <VisibilityOff fontSize='small' />
+                          ) : (
+                            <Visibility fontSize='small' />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                  rules={{
+                    required: {
+                      value: true,
+                      message: "Bắt buộc",
+                    },
+                    minLength: {
+                      value: 4,
+                      message: "Không được dưới 4 kí tự",
+                    },
+                  }}
+                  customSx={customTextField}
+                />
                 <LoadingButton
                   loading={isLoading}
                   type='submit'
                   color='primary'
                   variant='contained'
                   startIcon={<VpnKeyIcon />}
-                  onClick={handleSubmit(handleLogin)}
+                  onClick={handleSubmit(handleRegister)}
                 >
-                  Đăng nhập
+                  Đăng ký
                 </LoadingButton>
               </Stack>
             </form>
@@ -188,4 +230,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

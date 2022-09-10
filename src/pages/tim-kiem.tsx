@@ -31,7 +31,7 @@ const Search = () => {
         <WidthLayout>
           <Stack spacing={2} mt={{ md: 0, xs: "60px" }}>
             <Typography color='text.primary' fontSize={17}>
-              Kết quả với từ khóa <strong>"abc"</strong>
+              Kết quả với từ khóa <strong>&quot;abc&quot;</strong>
             </Typography>
             {flag === 0 && (
               <Stack direction={"row"} spacing={2} flexWrap='nowrap' mt={1}>

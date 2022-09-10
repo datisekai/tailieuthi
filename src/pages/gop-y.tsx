@@ -59,7 +59,11 @@ const Feedback = () => {
               aria-label='minimum height'
               minRows={10}
               placeholder='Đây là góp ý của bạn...'
-              style={{ width: "100%", padding: "16px" }}
+              style={{
+                width: "100%",
+                padding: "16px",
+                backgroundColor: secondary.main,
+              }}
             />
             <FlexBox
               mt={2}

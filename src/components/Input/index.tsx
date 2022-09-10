@@ -12,7 +12,7 @@ interface TextFieldProps {
   label: string;
   inputProps?: any;
   customSx?: any;
-  size?: string;
+  size?: "small" | "medium" | undefined;
 }
 
 const MTextField: FC<TextFieldProps> = ({
@@ -34,7 +34,7 @@ const MTextField: FC<TextFieldProps> = ({
             {...field}
             fullWidth
             type={type || "text"}
-            color='secondary'
+            color='primary'
             sx={customSx}
             autoComplete='false'
             size={size}

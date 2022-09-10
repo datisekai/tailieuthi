@@ -92,8 +92,8 @@ const Header = () => {
           <Stack direction={"row"} spacing={1}>
             <Link href='/'>
               <LazyLoadImage
-                alt={"AD Document"}
-                src={"/logo.jpg"} // use normal <img> attributes as props
+                alt={"tailieuthi.site"}
+                src={"/logo2.jpg"} // use normal <img> attributes as props
                 style={{ borderRadius: "50%", width: "50px" }}
               />
             </Link>
@@ -147,7 +147,7 @@ const Header = () => {
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar
                       alt='Remy Sharp'
-                      src='/static/images/avatar/2.jpg'
+                      src={`${user.avatar || "/static/images/avatar/2.jpg"}`}
                     />
                   </IconButton>
                 </Tooltip>
@@ -212,8 +212,8 @@ const Header = () => {
           </FlexBox>
           <Link href='/'>
             <LazyLoadImage
-              alt={"AD Document"}
-              src={"/logo.jpg"} // use normal <img> attributes as props
+              alt={"tailieuthi.site"}
+              src={"/logo2.jpg"} // use normal <img> attributes as props
               style={{ borderRadius: "50%", width: "50px" }}
             />
           </Link>

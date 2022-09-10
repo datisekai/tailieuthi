@@ -111,7 +111,7 @@ const Upload = () => {
                     row
                     aria-labelledby='demo-row-radio-buttons-group-label'
                     name='row-radio-buttons-group'
-                    value={"female"}
+                    defaultValue={"female"}
                   >
                     <FormControlLabel
                       value='female'
