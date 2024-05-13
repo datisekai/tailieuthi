@@ -78,23 +78,23 @@ const Settings = () => {
                 <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                   <TabList
                     onChange={handleChange}
-                    aria-label='lab API tabs example'
+                    aria-label="lab API tabs example"
                   >
-                    <Tab label='Thông tin cá nhân' value='1' />
-                    <Tab label='Đổi mật khẩu' value='2' />
+                    <Tab label="Thông tin cá nhân" value="1" />
+                    <Tab label="Đổi mật khẩu" value="2" />
                   </TabList>
                 </Box>
-                <TabPanel value='1'>
+                <TabPanel value="1">
                   <Stack spacing={2}>
                     <Avatar
                       sx={{ width: 70, height: 70 }}
-                      alt='Remy Sharp'
-                      src={`${user.avatar || "/static/images/avatar/2.jpg"}`}
+                      alt="Remy Sharp"
+                      src={`${user?.avatar || "/static/images/avatar/2.jpg"}`}
                     />
                     {user?.mssv && (
                       <FlexBox alignItems={"center"}>
-                        <CreditCardIcon color='info' />{" "}
-                        <Typography color='text.primary' ml={1}>
+                        <CreditCardIcon color="info" />{" "}
+                        <Typography color="text.primary" ml={1}>
                           Mã sinh viên:{" "}
                           <strong style={{ fontWeight: 500 }}>
                             {user.mssv}
@@ -104,8 +104,8 @@ const Settings = () => {
                     )}
                     {user?.email && (
                       <FlexBox alignItems={"center"}>
-                        <EmailIcon color='info' />{" "}
-                        <Typography color='text.primary' ml={1}>
+                        <EmailIcon color="info" />{" "}
+                        <Typography color="text.primary" ml={1}>
                           Email:{" "}
                           <strong style={{ fontWeight: 500 }}>
                             {user.email}
@@ -115,8 +115,8 @@ const Settings = () => {
                     )}
                     {user?.name && (
                       <FlexBox alignItems={"center"}>
-                        <BadgeIcon color='info' />{" "}
-                        <Typography color='text.primary' ml={1}>
+                        <BadgeIcon color="info" />{" "}
+                        <Typography color="text.primary" ml={1}>
                           Tên của bạn:{" "}
                           <strong style={{ fontWeight: 500 }}>
                             {user.name}
@@ -126,8 +126,8 @@ const Settings = () => {
                     )}
                     {user?.username && (
                       <FlexBox alignItems={"center"}>
-                        <AccountCircleIcon color='info' />{" "}
-                        <Typography color='text.primary' ml={1}>
+                        <AccountCircleIcon color="info" />{" "}
+                        <Typography color="text.primary" ml={1}>
                           Username:{" "}
                           <strong style={{ fontWeight: 500 }}>
                             {user.username}
@@ -137,8 +137,8 @@ const Settings = () => {
                     )}
                     {user?.status && (
                       <FlexBox alignItems={"center"}>
-                        <SignalWifiStatusbar4BarIcon color='info' />{" "}
-                        <Typography color='text.primary' ml={1}>
+                        <SignalWifiStatusbar4BarIcon color="info" />{" "}
+                        <Typography color="text.primary" ml={1}>
                           Trạng thái:{" "}
                           <strong style={{ fontWeight: 500 }}>
                             {user.status ? "Hoạt động" : "Bị khóa"}
@@ -148,8 +148,8 @@ const Settings = () => {
                     )}
                     {user?.createdAt && (
                       <FlexBox alignItems={"center"}>
-                        <HistoryIcon color='info' />{" "}
-                        <Typography color='text.primary' ml={1}>
+                        <HistoryIcon color="info" />{" "}
+                        <Typography color="text.primary" ml={1}>
                           Thời gian lập:{" "}
                           <strong style={{ fontWeight: 500 }}>
                             {dayjs(user.createdAt).format("DD/MM/YYYY")}
@@ -159,59 +159,59 @@ const Settings = () => {
                     )}
                   </Stack>
                 </TabPanel>
-                <TabPanel value='2'>
+                <TabPanel value="2">
                   <Stack spacing={2}>
                     <TextField
-                      id='outlined-basic'
-                      label='Mật khẩu cũ'
-                      variant='outlined'
+                      id="outlined-basic"
+                      label="Mật khẩu cũ"
+                      variant="outlined"
                       sx={{
                         div: {
                           bgcolor: secondary.main,
                         },
                       }}
-                      size='medium'
+                      size="medium"
                     />{" "}
                     <TextField
-                      id='outlined-basic'
-                      label='Mật khẩu mới'
-                      variant='outlined'
+                      id="outlined-basic"
+                      label="Mật khẩu mới"
+                      variant="outlined"
                       sx={{
                         div: {
                           bgcolor: secondary.main,
                         },
                       }}
-                      size='medium'
+                      size="medium"
                     />{" "}
                     <TextField
-                      id='outlined-basic'
-                      label='Nhập lại mật khẩu mới'
-                      variant='outlined'
+                      id="outlined-basic"
+                      label="Nhập lại mật khẩu mới"
+                      variant="outlined"
                       sx={{
                         div: {
                           bgcolor: secondary.main,
                         },
                       }}
-                      size='medium'
+                      size="medium"
                     />{" "}
                     <FlexBox
                       alignItems={"center"}
-                      justifyContent='space-between'
+                      justifyContent="space-between"
                     >
                       <Button
                         startIcon={<CloseIcon />}
-                        size='large'
-                        variant='contained'
-                        color='info'
+                        size="large"
+                        variant="contained"
+                        color="info"
                         onClick={handleClose}
                       >
                         Đóng
                       </Button>
                       <Button
                         startIcon={<SaveIcon />}
-                        size='large'
-                        variant='contained'
-                        color='primary'
+                        size="large"
+                        variant="contained"
+                        color="primary"
                       >
                         Lưu thay đổi
                       </Button>
